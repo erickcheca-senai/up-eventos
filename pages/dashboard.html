@@ -1,0 +1,366 @@
+<!-- UP Eventos - Web Desktop (Início & Dashboard) -->
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head><title>UP Eventos | Dashboard</title><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline-variant":"#50453b","secondary":"#fab893","on-error":"#690005","surface-tint":"#f0bd8b","secondary-fixed-dim":"#fab893","surface":"#131315","on-secondary-fixed":"#321200","on-primary-container":"#5b3912","on-tertiary":"#4a2712","tertiary-container":"#d7a183","inverse-primary":"#7d562d","secondary-container":"#683b1f","primary-container":"#d4a373","tertiary-fixed":"#ffdbc9","surface-container-lowest":"#0e0e10","on-secondary":"#4d260b","on-primary-fixed-variant":"#623f18","inverse-surface":"#e5e1e4","on-surface":"#e5e1e4","on-tertiary-fixed":"#311302","surface-container":"#201f21","on-secondary-container":"#e6a783","primary":"#f2be8c","surface-bright":"#39393b","background":"#131315","on-primary-fixed":"#2c1600","on-surface-variant":"#d4c4b7","inverse-on-surface":"#313032","error":"#ffb4ab","primary-fixed":"#ffdcbd","on-tertiary-container":"#5d3720","surface-dim":"#131315","primary-fixed-dim":"#f0bd8b","surface-container-highest":"#353437","error-container":"#93000a","surface-variant":"#353437","on-error-container":"#ffdad6","on-background":"#e5e1e4","on-tertiary-fixed-variant":"#653d26","surface-container-high":"#2a2a2c","tertiary":"#f5bc9d","on-primary":"#482904","tertiary-fixed-dim":"#f3ba9b","outline":"#9c8e82","secondary-fixed":"#ffdbc9","on-secondary-fixed-variant":"#683b1f","surface-container-low":"#1b1b1d"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.5rem","gutter-mobile":"0.75rem","gutter-desktop":"1.5rem","space-lg":"1.5rem","space-sm":"0.75rem","margin-desktop":"2.5rem","space-2xl":"3rem","space-md":"1rem","space-xxs":"0.25rem","space-xl":"2rem","margin-mobile":"1rem"},"fontFamily":{"headline-lg":["Playfair Display"],"label-lg":["Outfit"],"title-md":["Outfit"],"display-lg-mobile":["Playfair Display"],"body-md":["Outfit"],"body-sm":["Outfit"],"headline-sm":["Playfair Display"],"label-caps":["Outfit"],"label-md":["Outfit"],"headline-lg-mobile":["Playfair Display"],"headline-md":["Playfair Display"],"display-lg":["Playfair Display"],"body-lg":["Outfit"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"500"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"500"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.12em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script><style id="up-eventos-cleanup">
+.up-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.up-logo-mark{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:#111827;color:#fff;font-weight:800;font-size:15px}
+.up-logo-text{font-weight:800;letter-spacing:.04em;color:#111827}
+.up-notification-panel{position:fixed;right:24px;top:78px;width:330px;max-width:calc(100vw - 32px);background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 18px 45px rgba(0,0,0,.14);padding:16px;z-index:9999;display:none}
+.up-notification-panel.show{display:block}
+.up-notification-panel h3{margin:0 0 10px;font-size:16px}
+.up-notification-item{padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:13px}
+.up-notification-item:last-child{border-bottom:0}
+</style><link rel="stylesheet" href="../css/estilo-empresa.css"><link rel="icon" type="image/png" href="../assets/favicon.png"></head><script>if(localStorage.getItem('up_eventos_logado') !== '1') window.location.href='../login.html';</script><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm"><a href="dashboard.html" aria-label="UP Eventos - Painel" style="display:flex;align-items:center;min-height:72px"><img src="../assets/logo-up-eventos.png" alt="UP Eventos" style="width:158px;height:70px;object-fit:contain;object-position:left center"></a></div><div class="px-space-md py-space-xs"><span class="px-space-sm font-label-caps text-label-caps text-outline uppercase tracking-wider text-[10px]">Navegação Principal</span></div><nav class="px-space-md flex flex-col gap-space-xxs" data-active-classes="bg-surface-container-high text-primary font-title-md shadow-[0_0_12px_rgba(212,163,115,0.12)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-primary bg-primary/10 hover:bg-primary/20 transition-all duration-200 group mb-space-xxs border border-primary/20" data-path="trocar-plataforma" href="../apresentacao.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:-translate-x-1">keyboard_backspace</span><span class="font-label-lg text-label-lg font-semibold">Trocar Plataforma</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="inicio-dashboard" href="dashboard.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">dashboard</span><span class="font-label-lg text-label-lg">Início &amp; Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="cadastro-de-clientes" href="cadastro-clientes.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">person_add</span><span class="font-label-lg text-label-lg">Cadastro de Clientes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="catalogo-de-servicos" href="servicos.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">inventory_2</span><span class="font-label-lg text-label-lg">Catálogo de Serviços</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="elaboracao-de-orcamentos" href="orcamentos.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">request_quote</span><span class="font-label-lg text-label-lg">Elaboração de Orçamentos</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="definicao-de-datas" href="datas.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">calendar_month</span><span class="font-label-lg text-label-lg">Definição de Datas</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="meus-eventos-galeria" href="eventos-galeria.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">photo_camera</span><span class="font-label-lg text-label-lg">Meus Eventos &amp; Galeria</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" href="camera.html"><span class="material-symbols-outlined text-[20px]">photo_camera</span><span class="font-label-lg text-label-lg">Câmera</span></a></nav></div><div class="p-space-lg bg-surface-container-lowest"><div class="p-space-md rounded-xl bg-surface-container-low shadow-[0_8px_24px_rgba(0,0,0,0.25)] flex flex-col gap-space-xxs"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-label-caps text-label-caps tracking-widest text-[10px] text-primary">SISTEMA ATIVO</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">UP Eventos Pro © 2026<br><span class="text-outline text-[11px]">Celebre • Conecte • Viva Momentos</span></p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl z-40 px-space-xl flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 max-w-xl"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-outline pointer-events-none text-[20px]">search</span><input class="w-full h-11 pl-12 pr-space-md bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-[0_2px_8px_rgba(0,0,0,0.2)] transition-all" placeholder="Buscar serviços, orçamentos, datas..." type="text"></div></div><div class="flex items-center gap-space-lg ml-space-lg"><a href="dashboard.html" title="Voltar à Seleção de Plataformas" class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-high/80 hover:bg-surface-bright text-primary border border-primary/20 hover:border-primary/40 transition-all duration-200 shadow-sm group"><span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:-translate-x-0.5">swap_horiz</span><span class="font-label-md text-label-md font-semibold tracking-wide hidden sm:inline">Trocar Plataforma / Início</span></a><button class="relative p-space-xs rounded-xl bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all duration-200 shadow-[0_2px_8px_rgba(0,0,0,0.15)]" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#fab893]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-title-md text-title-md text-on-surface font-semibold leading-tight">Amanda Guimarães</span><span class="font-label-md text-label-md text-primary font-medium">Organizadora Master</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40" src="../assets/profile-amanda.png"></div></div></header><main class="w-full pt-20 px-space-xl pb-space-2xl bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="relative w-full rounded-2xl bg-surface-container-low p-space-xl shadow-xl overflow-hidden mb-space-xl">
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-secondary/5 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xxs max-w-2xl">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">diamond</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold">Painel Executivo • Temporada 2026/2027</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Olá, Amanda!</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Acompanhe o resumo em tempo real dos orçamentos, clientes cadastrados e celebrações de em andamento.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="group flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-surface-container-high text-primary hover:bg-surface-bright transition-all duration-300 shadow-md" type="button">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:scale-110 text-primary">person_add</span>
+<span class="font-label-lg text-label-lg font-semibold">+ Cadastrar Cliente</span>
+</button>
+<button class="group flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-gradient-to-r from-primary-container via-primary to-secondary text-on-primary font-semibold shadow-lg hover:shadow-primary/20 hover:scale-[1.02] transition-all duration-300" type="button">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:rotate-12">add_task</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-primary-fixed">+ Novo Orçamento</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-xl">
+<div class="relative bg-surface-container-low p-space-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold tracking-wider">Total de Clientes</span>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">group</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold leading-none">128</span>
+<span class="font-label-md text-label-md text-primary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12%
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Crescimento contínuo nesta temporada</p>
+</div>
+</div>
+<div class="relative bg-surface-container-low p-space-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-secondary/5 group-hover:bg-secondary/10 transition-colors pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold tracking-wider">Solicitações Pendentes</span>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">pending_actions</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold leading-none">18</span>
+<span class="font-label-md text-label-md text-secondary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">schedule</span> +5%
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Aguardando buffet, menu &amp; degustação</p>
+</div>
+</div>
+<div class="relative bg-surface-container-low p-space-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary-fixed/5 group-hover:bg-primary-fixed/10 transition-colors pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold tracking-wider">Eventos em Andamento</span>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">celebration</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold leading-none">12</span>
+<span class="font-label-md text-label-md text-primary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">event_upcoming</span> 3 ativos
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Previstos para este final de semana</p>
+</div>
+</div>
+<div class="relative bg-surface-container-low p-space-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold tracking-wider">Orçamentos em Análise</span>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold leading-none">7</span>
+<span class="font-label-md text-label-md text-primary font-semibold">R$ 142.500</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Total sob negociação exclusiva</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<div class="lg:col-span-8 flex flex-col bg-surface-container-low rounded-2xl p-space-lg shadow-xl overflow-hidden">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Eventos Recentes &amp; Status</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fluxo de coordenação executiva e cronograma</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider hidden sm:inline">Filtrar por:</span>
+<button class="px-space-sm py-space-xxs rounded-lg bg-surface-container-high text-primary font-label-md text-label-md" type="button">Todos</button>
+<button class="px-space-sm py-space-xxs rounded-lg hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md transition-colors" type="button">Confirmados</button>
+</div>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container font-label-caps text-label-caps text-outline uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l-lg">Cliente</th>
+<th class="py-space-sm px-space-md">Tipo de Evento</th>
+<th class="py-space-sm px-space-md">Data Prevista</th>
+<th class="py-space-sm px-space-md">Status</th>
+<th class="py-space-sm px-space-md text-right rounded-r-lg">Ação Rápida</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 space-y-2">
+<tr class="group hover:bg-surface-container transition-colors duration-200">
+<td class="py-space-md px-space-md rounded-l-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md flex items-center justify-center shadow-sm">
+                    BR
+                  </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Beatriz Rocha</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">beatriz.r@vip.com</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[18px] text-primary">cake</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Aniversário 25 Anos</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                02/05/2026
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                  Em andamento
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right rounded-r-xl">
+<button class="inline-flex items-center gap-1 px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary transition-all duration-200 font-label-md text-label-md" type="button">
+<span class="">Ver Orçamento</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container transition-colors duration-200">
+<td class="py-space-md px-space-md rounded-l-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-primary font-title-md text-title-md flex items-center justify-center shadow-sm">
+                    HM
+                  </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Helena &amp; Mateus</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">casamento.hm@lux.br</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[18px] text-primary">favorite</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Casamento Clássico</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                14/06/2026
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-highest text-secondary-fixed font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Aprovado
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right rounded-r-xl">
+<button class="inline-flex items-center gap-1 px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-secondary transition-all duration-200 font-label-md text-label-md" type="button">
+<span class="">Agenda</span>
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container transition-colors duration-200">
+<td class="py-space-md px-space-md rounded-l-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container font-title-md text-title-md flex items-center justify-center shadow-sm">
+                    GV
+                  </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Grupo Vanguarda</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">eventos@vanguarda.corp</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[18px] text-primary">apartment</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Confraternização Anual</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                12/08/2026
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Em análise
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right rounded-r-xl">
+<button class="inline-flex items-center gap-1 px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary transition-all duration-200 font-label-md text-label-md" type="button">
+<span class="">Proposta</span>
+<span class="material-symbols-outlined text-[16px]">description</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container transition-colors duration-200">
+<td class="py-space-md px-space-md rounded-l-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-primary font-title-md text-title-md flex items-center justify-center shadow-sm">
+                    CD
+                  </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Comissão Direito USP</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">formatura2026@usp.br</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xxs">
+<span class="material-symbols-outlined text-[18px] text-primary">school</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Formatura Gala Luxo</span>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                20/11/2026
+              </td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-highest text-secondary-fixed font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Aprovado
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right rounded-r-xl">
+<button class="inline-flex items-center gap-1 px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-secondary transition-all duration-200 font-label-md text-label-md" type="button">
+<span class="">Agenda</span>
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between bg-surface-container-lowest/60 p-space-sm rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Exibindo 4 de 12 eventos agendados</span>
+<button class="font-label-lg text-label-lg text-primary hover:underline flex items-center gap-1" type="button">
+          Acessar Lista Completa <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<div class="bg-surface-container-low rounded-2xl p-space-lg shadow-xl flex flex-col relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">stars</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Próximo Destaque</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary/20 text-primary font-label-caps text-[10px] uppercase font-bold">Prioridade</span>
+</div>
+<div class="relative w-full h-44 rounded-xl overflow-hidden mb-space-md shadow-md group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A grand luxury wedding hall interior with crystal chandeliers, elegant white floral floral arrangements, warm golden evening fairy lights, tall cathedral ceilings, and dressed reception tables with warm champagne ambient tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaTrfp4zT1kcNu64-cKUFEe88yA_uR_faNQB5sotb-lVE13AZgbNS24F1R3wq04HiF8nos0s3PccdjY4I_yFCoixjGaDYmf-k2M1ekBWKWQ8H1c06r0tNJE6kopKCwVXOmr0djNN2JD19n8I0LpgoR4KUvUA44Tm6-rLilJQsJkZI1FNy6l9_npdj2VDuW8P1IPyjNL_ApdTbooCtarFuVGbA_b_hI9Th7EeR4q7PIVos3WJ0lBo61">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">Casamento Clássico</h3>
+<p class="font-body-sm text-body-sm text-primary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Espaço Jardins Imperial
+              </p>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant bg-surface-container/90 px-space-xs py-0.5 rounded backdrop-blur-md">18:00h</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant font-medium">Checklist da Produção</span>
+<span class="text-primary font-bold">85% concluído</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 85%"></div>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-outline mt-1">
+<span class="">Data: 14 de Junho de 2026</span>
+<span class="">42 tarefas validadas</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="flex -space-x-2 overflow-hidden">
+<div class="inline-block h-7 w-7 rounded-full bg-primary/30 text-primary font-bold text-[10px] flex items-center justify-center ring-2 ring-surface-container">CR</div>
+<div class="inline-block h-7 w-7 rounded-full bg-secondary/30 text-secondary font-bold text-[10px] flex items-center justify-center ring-2 ring-surface-container">MA</div>
+<div class="inline-block h-7 w-7 rounded-full bg-tertiary/30 text-tertiary font-bold text-[10px] flex items-center justify-center ring-2 ring-surface-container">+3</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Equipe Cerimonial</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase font-semibold">Confirmados</span>
+</div>
+<button class="w-full py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-title-md text-title-md flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="">Acessar Cronograma do Evento</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-space-lg shadow-xl flex flex-col relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Módulo Fotográfico</span>
+</div>
+<span class="font-label-md text-label-md text-outline">Recentes</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs mb-space-md">
+<div class="h-20 rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Close up of luxury crystal champagne glasses lined up on a mirrored tray with soft golden bokeh highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMizvpDyroZfhnpSW7vWb6dY9C8PmzxVX__9TuEVyZK9A7O5EjPa5-qJkl_3hdZKDTtHE6Dya1gYc3uwUxhlmE2_RQY_H_3kTcHyPyZf0FlzR7y4nPtkzF2A0Rwp-eBWFC0Gqg-oWH_81VCx8U6yPrckKvdEEkdNCbp-0-8Z7pPvi3nHW5SgOGbYlSRflCBQcPF2YGVW4JjP_sBGNn3UJEnnE_IprXq5ctdjBio4fF_YY2k8EY6eOy">
+</div>
+<div class="h-20 rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Opulent botanical floral arrangement with dusty rose peonies, warm white orchids and copper vase accents on high table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI8-vErh9iYq181zH73ra7UYU6elDjUwKl0zgDJLYIzPxRQ2iQMW2nmd5PqGI3axV-qVsdRn6hWvR2SR5sIZZbQQX6iErZT_eBx0AOpVfsrkLdEGrAuslleJ0PyAL8VHhFjvOpvM8zpfPpOTAtr5t__IqLsryFBY5Thkbx7pIOv1DA-vBXCHMcJBYaonzvXHZpwzVjTdUw8FxiFeodsZlXlwQfPrkT3IXFTRX4r4wRfcov7vgwumL8">
+</div>
+<div class="h-20 rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" data-alt="Evening gala celebration venue with guests in elegant black tie attire under warm golden string lights and moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrJhgRTmq2dL8T89GL8l_ZrfWBUyBit0tdBllpIZLt4_FrS_Yw5Znj0jdLrEQFDUFzO1Q183csWK4CSyTlOajRGrlhueppXtdq6Yka8jcknSpoaUeCT7uFb_cEdRtXZ-borfpVKxMW-28LilsXPkcwyvOwTSyvoJ9iOPNYxsHXmQ_84X4JQVRVVYPt5QsKUNiOXODPRwLSIsR7cJwgXAXmRGbcnYjoAXYUe9-vg6dvT5HqPA57LgfC">
+</div>
+</div>
+<div class="flex flex-col gap-space-xxs mb-space-sm">
+<span class="font-title-md text-title-md text-on-surface font-medium leading-tight">Portfólio de Acervo &amp; Cobertura</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mais de 1.400 registros em alta resolução sincronizados com nuvem privativa.</p>
+</div>
+<button class="w-full py-space-sm rounded-xl bg-gradient-to-r from-surface-container-high to-surface-bright text-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs hover:shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">collections</span>
+<span class="">Ver Galeria &amp; Fotos</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div>
+
+<script src="../js/app.js"></script>
+</body></html>

@@ -1,0 +1,497 @@
+<!-- UP Eventos - Web Desktop (Catálogo de Serviços) -->
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><title>UP Eventos | Servicos</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline-variant":"#50453b","secondary":"#fab893","on-error":"#690005","surface-tint":"#f0bd8b","secondary-fixed-dim":"#fab893","surface":"#131315","on-secondary-fixed":"#321200","on-primary-container":"#5b3912","on-tertiary":"#4a2712","tertiary-container":"#d7a183","inverse-primary":"#7d562d","secondary-container":"#683b1f","primary-container":"#d4a373","tertiary-fixed":"#ffdbc9","surface-container-lowest":"#0e0e10","on-secondary":"#4d260b","on-primary-fixed-variant":"#623f18","inverse-surface":"#e5e1e4","on-surface":"#e5e1e4","on-tertiary-fixed":"#311302","surface-container":"#201f21","on-secondary-container":"#e6a783","primary":"#f2be8c","surface-bright":"#39393b","background":"#131315","on-primary-fixed":"#2c1600","on-surface-variant":"#d4c4b7","inverse-on-surface":"#313032","error":"#ffb4ab","primary-fixed":"#ffdcbd","on-tertiary-container":"#5d3720","surface-dim":"#131315","primary-fixed-dim":"#f0bd8b","surface-container-highest":"#353437","error-container":"#93000a","surface-variant":"#353437","on-error-container":"#ffdad6","on-background":"#e5e1e4","on-tertiary-fixed-variant":"#653d26","surface-container-high":"#2a2a2c","tertiary":"#f5bc9d","on-primary":"#482904","tertiary-fixed-dim":"#f3ba9b","outline":"#9c8e82","secondary-fixed":"#ffdbc9","on-secondary-fixed-variant":"#683b1f","surface-container-low":"#1b1b1d"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.5rem","gutter-mobile":"0.75rem","gutter-desktop":"1.5rem","space-lg":"1.5rem","space-sm":"0.75rem","margin-desktop":"2.5rem","space-2xl":"3rem","space-md":"1rem","space-xxs":"0.25rem","space-xl":"2rem","margin-mobile":"1rem"},"fontFamily":{"headline-lg":["Playfair Display"],"label-lg":["Outfit"],"title-md":["Outfit"],"display-lg-mobile":["Playfair Display"],"body-md":["Outfit"],"body-sm":["Outfit"],"headline-sm":["Playfair Display"],"label-caps":["Outfit"],"label-md":["Outfit"],"headline-lg-mobile":["Playfair Display"],"headline-md":["Playfair Display"],"display-lg":["Playfair Display"],"body-lg":["Outfit"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"500"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"500"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.12em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script><style id="up-eventos-cleanup">
+.up-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.up-logo-mark{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:#111827;color:#fff;font-weight:800;font-size:15px}
+.up-logo-text{font-weight:800;letter-spacing:.04em;color:#111827}
+.up-notification-panel{position:fixed;right:24px;top:78px;width:330px;max-width:calc(100vw - 32px);background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 18px 45px rgba(0,0,0,.14);padding:16px;z-index:9999;display:none}
+.up-notification-panel.show{display:block}
+.up-notification-panel h3{margin:0 0 10px;font-size:16px}
+.up-notification-item{padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:13px}
+.up-notification-item:last-child{border-bottom:0}
+</style><link rel="stylesheet" href="../css/estilo-empresa.css"><link rel="icon" type="image/png" href="../assets/favicon.png"></head><script>if(localStorage.getItem('up_eventos_logado') !== '1') window.location.href='../login.html';</script><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm"><a href="dashboard.html" aria-label="UP Eventos - Painel" style="display:flex;align-items:center;min-height:72px"><img src="../assets/logo-up-eventos.png" alt="UP Eventos" style="width:158px;height:70px;object-fit:contain;object-position:left center"></a></div><div class="px-space-md py-space-xs"><span class="px-space-sm font-label-caps text-label-caps text-outline uppercase tracking-wider text-[10px]">Navegação Principal</span></div><nav class="px-space-md flex flex-col gap-space-xxs" data-active-classes="bg-surface-container-high text-primary font-title-md shadow-[0_0_12px_rgba(212,163,115,0.12)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="inicio-dashboard" href="dashboard.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">dashboard</span><span class="font-label-lg text-label-lg">Início &amp; Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="cadastro-de-clientes" href="cadastro-clientes.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">person_add</span><span class="font-label-lg text-label-lg">Cadastro de Clientes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="catalogo-de-servicos" href="servicos.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">inventory_2</span><span class="font-label-lg text-label-lg">Catálogo de Serviços</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="elaboracao-de-orcamentos" href="orcamentos.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">request_quote</span><span class="font-label-lg text-label-lg">Elaboração de Orçamentos</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="definicao-de-datas" href="datas.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">calendar_month</span><span class="font-label-lg text-label-lg">Definição de Datas</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" data-path="meus-eventos-galeria" href="eventos-galeria.html"><span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:scale-110">photo_camera</span><span class="font-label-lg text-label-lg">Meus Eventos &amp; Galeria</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-200 group" href="camera.html"><span class="material-symbols-outlined text-[20px]">photo_camera</span><span class="font-label-lg text-label-lg">Câmera</span></a></nav></div><div class="p-space-lg bg-surface-container-lowest"><div class="p-space-md rounded-xl bg-surface-container-low shadow-[0_8px_24px_rgba(0,0,0,0.25)] flex flex-col gap-space-xxs"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-label-caps text-label-caps tracking-widest text-[10px] text-primary">SISTEMA ATIVO</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">UP Eventos Pro © 2026<br/><span class="text-outline text-[11px]">Celebre • Conecte • Viva Momentos</span></p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl z-40 px-space-xl flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 max-w-xl"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-outline pointer-events-none text-[20px]">search</span><input class="w-full h-11 pl-12 pr-space-md bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-[0_2px_8px_rgba(0,0,0,0.2)] transition-all" placeholder="Buscar serviços, orçamentos, datas..." type="text"/></div></div><div class="flex items-center gap-space-lg ml-space-lg"><button class="relative p-space-xs rounded-xl bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all duration-200 shadow-[0_2px_8px_rgba(0,0,0,0.15)]" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#fab893]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-title-md text-title-md text-on-surface font-semibold leading-tight">Amanda Guimarães</span><span class="font-label-md text-label-md text-primary font-medium">Organizadora Master</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40" src="../assets/profile-amanda.png"/></div></div></header><main class="w-full pt-20 px-space-xl pb-space-2xl bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
+<div class="flex flex-col gap-space-xxs max-w-2xl">
+<div class="flex items-center gap-space-xs text-primary font-label-caps text-label-caps uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>Módulo de Engenharia de Custos &amp; Experiências</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Catálogo de Serviços</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        Gerencie, precifique e selecione os serviços exclusivos para os eventos da empresa.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-auto">
+<div class="bg-surface-container-low px-space-md py-space-xs rounded-xl shadow-md flex items-center gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Itens Disponíveis</span>
+<span class="font-title-md text-title-md text-primary font-semibold">24 Especialidades</span>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Status do Catálogo</span>
+<span class="font-label-lg text-label-lg text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            Sincronizado
+          </span>
+</div>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container hover:bg-surface-container-high text-on-surface rounded-xl transition-all shadow-md" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">add_circle</span>
+<span class="font-label-lg text-label-lg">Novo Serviço</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex items-center justify-between flex-wrap gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 max-w-full no-scrollbar">
+<button class="filter-btn active px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-semibold shadow-md whitespace-nowrap transition-all" data-category="all" type="button">
+          Todos os Serviços
+        </button>
+<button class="filter-btn px-space-md py-space-xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg whitespace-nowrap transition-all" data-category="decor" type="button">
+          Decoração &amp; Cenografia
+        </button>
+<button class="filter-btn px-space-md py-space-xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg whitespace-nowrap transition-all" data-category="buffet" type="button">
+          Gastronomia &amp; Buffet
+        </button>
+<button class="filter-btn px-space-md py-space-xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg whitespace-nowrap transition-all" data-category="iluminacao" type="button">
+          Audiovisual &amp; Iluminação
+        </button>
+<button class="filter-btn px-space-md py-space-xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg whitespace-nowrap transition-all" data-category="musica" type="button">
+          Música &amp; Atrações
+        </button>
+<button class="filter-btn px-space-md py-space-rs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg whitespace-nowrap transition-all" data-category="equipe" type="button">
+          Equipe &amp; Cerimonial
+        </button>
+</div>
+<div class="flex items-center gap-space-xs ml-auto">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Visualização:</span>
+<button class="p-space-xxs rounded-lg bg-surface-container-high text-primary"><span class="material-symbols-outlined text-[18px]">grid_view</span></button>
+<button class="p-space-xxs rounded-lg bg-surface-container-low text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">view_list</span></button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg mb-space-2xl">
+<div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group" data-category="decor" data-id="1" data-price="1800">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Luxurious dark wedding banquet hall filled with candlelit chandeliers, moody architectural lighting, deep amber tones, suspended floral compositions with lush white orchids and dark greenery, perfectly set crystal tables and gold cutlery under dramatic shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSlzoxdt9If6SSKEDZtOYiMZP21iB1VCsaasFwn3M8CgF2KQgxtysNuUcpekI-86oG_ggoh3-w-d90wZ53pxI891n7ic7QmHABPepRzEOzFWAS9A0P2J_LWqO028rl3eeVWBsm-C64JJSFMmzJqTyi7KOs71O89SD_EuSjTXNIxLtdOCTcTxtgtAUTIwawUhzYoHNoQfzM1l3Yju68MIV-bDab1Qw0EUzYTEih-cfdYb1IfVLyYO4_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps font-semibold shadow-md backdrop-blur-md">
+            Mais Solicitado
+          </span>
+</div>
+<div class="absolute top-space-md right-space-md bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-1 rounded-full flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">5.0</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Cenografia &amp; Design</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant status-text">Ativo</span>
+<button aria-label="Alterar disponibilidade" class="toggle-switch w-9 h-5 bg-primary-container rounded-full relative transition-colors focus:outline-none cursor-pointer" type="button">
+<span class="dot absolute left-4 top-0.5 w-4 h-4 rounded-full bg-on-primary-container transition-transform"></span>
+</button>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Decoração Premium</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+            Ambientação floral personalizada, arranjos suspensos e móveis clássicos de alta gama para noites memoráveis.
+          </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Investimento</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">A partir de</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">R$ 1.800<span class="font-body-sm text-body-sm text-outline">,00</span></span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Por Ambiente</span>
+</div>
+<button class="select-btn w-full py-space-sm px-space-md rounded-xl bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-title-md text-title-md transition-all duration-200 flex items-center justify-center gap-space-xs shadow-sm selected-state" data-selected="true" type="button">
+<span class="material-symbols-outlined text-[20px] btn-icon">check</span>
+<span class="btn-text">Selecionado</span>
+</button>
+</div>
+</div>
+</div>
+<div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group" data-category="buffet" data-id="2" data-price="2500">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Exquisite fine dining course served on matte dark stoneware plate with gold leaf accents, microgreens, smoked meat, surrounded by wine crystal glasses, deep black tablecloth, moody warm candlelight, high-end gala banquet gastronomy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsxbLMmP-7mNslnEJnUNcAXI_Enfi2csVp8jPki1tbXFYcK1zfGjKUUwwxk3lpvj4Q-9q9ukw0ruRMC_t8oHtfzOwmg_K_BcpmfMvuAVbdjLYF9pBqNyoSyFNqUuadOBmavZeDTiO6wPdoTO1k1nGthRWRVfsm3fef3l7ns3HaUad_KPFippQy-CqkFsacF_xKJ6SnS8FFsUG-LqMxTgkCVf2nRiCkVPwAKach1fBxwoCRFpdR4lib"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-md backdrop-blur-md">
+            Menu VIP
+          </span>
+</div>
+<div class="absolute top-space-md right-space-md bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-1 rounded-full flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.9</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Alta Gastronomia</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant status-text">Ativo</span>
+<button aria-label="Alterar disponibilidade" class="toggle-switch w-9 h-5 bg-primary-container rounded-full relative transition-colors focus:outline-none cursor-pointer" type="button">
+<span class="dot absolute left-4 top-0.5 w-4 h-4 rounded-full bg-on-primary-container transition-transform"></span>
+</button>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Buffet Gastronômico Completo</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+            Menu degustação autoral, coquetel volante refinado, jantar empratado com chefs e sobremesas finas artesanais.
+          </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Investimento</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">A partir de</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">R$ 2.500<span class="font-body-sm text-body-sm text-outline">,00</span></span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Por 50 Convidados</span>
+</div>
+<button class="select-btn w-full py-space-sm px-space-md rounded-xl bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-title-md text-title-md transition-all duration-200 flex items-center justify-center gap-space-xs shadow-sm selected-state" data-selected="true" type="button">
+<span class="material-symbols-outlined text-[20px] btn-icon">check</span>
+<span class="btn-text">Selecionado</span>
+</button>
+</div>
+</div>
+</div>
+<div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group" data-category="iluminacao" data-id="3" data-price="800">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Architectural dramatic warm ambient lighting inside an opulent high-ceiling luxury event venue, golden beam spotlights highlighting stone textures, soft warm haze, glowing uplighting along arches." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm-v1sR6FY-ihBtJ5oXRCGc8P01knDZhKtbX1FKH4wgQ6GgcuNpnUJEcvpShk9k8jH-IQoHMGctzjjwUoFmHa3alNxz6OoIcaHiHjghNdFhbL9kEF3OtM3Jug33ahCq-cl8cjMp35VcVRh1SGKUVO2ftp0M1pEklLrCQjKS3mKkYNXc8dxH5VjU1Nn5nmUwVTvMon0rrOOOklpLMGQrH6-Klpfanu_4z98bhUNYerbrLEQ6oLDWz8y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
+<div class="absolute top-space-md right-space-md bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-1 rounded-full flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.8</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Audiovisual</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant status-text">Ativo</span>
+<button aria-label="Alterar disponibilidade" class="toggle-switch w-9 h-5 bg-primary-container rounded-full relative transition-colors focus:outline-none cursor-pointer" type="button">
+<span class="dot absolute left-4 top-0.5 w-4 h-4 rounded-full bg-on-primary-container transition-transform"></span>
+</button>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Iluminação Cênica</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+            Luz quente arquitetural, ribaltas de LED inteligente e canhões de foco suave desenhados para valorizar espaços.
+          </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Investimento</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">A partir de</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">R$ 800<span class="font-body-sm text-body-sm text-outline">,00</span></span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Projeto Base</span>
+</div>
+<button class="select-btn w-full py-space-sm px-space-md rounded-xl bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-title-md text-title-md transition-all duration-200 flex items-center justify-center gap-space-xs shadow-sm" data-selected="false" type="button">
+<span class="material-symbols-outlined text-[20px] btn-icon">add</span>
+<span class="btn-text">+ Adicionar ao Orçamento</span>
+</button>
+</div>
+</div>
+</div>
+<div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group" data-category="musica" data-id="4" data-price="900">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Professional DJ mixing music at a grand luxury gala party, illuminated luxury metallic turntable console, warm subtle golden backlight, euphoric well-dressed crowd blurred in the dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPDRSGYcxByAKaXcGed2ZTnzB41nuYCrsypeJw0CorDEdreAEmibzzOw-J-BY-dB904kTBs_eizfvfhnX1_n7psiW8e12M03yqoIYQbBz1Zhy6OOASC0xab0w0FGdVu4LPHt-iMeGdjTgffUkaBrXkL2_P8goa3H_gouhUMu0R4V4T3VXOfzLPwfXt6Qv4MTko6EC_IAU9PX-X3VJExD_DTlUH2Ox8EThBKLe2rTJ5YMMly7tTWpj-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
+<div class="absolute top-space-md right-space-md bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-1 rounded-full flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.9</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Entretenimento</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant status-text">Ativo</span>
+<button aria-label="Alterar disponibilidade" class="toggle-switch w-9 h-5 bg-primary-container rounded-full relative transition-colors focus:outline-none cursor-pointer" type="button">
+<span class="dot absolute left-4 top-0.5 w-4 h-4 rounded-full bg-on-primary-container transition-transform"></span>
+</button>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Som e DJ Profissional</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+            Sistema acústico de alta fidelidade calibrado, microfones sem fio e DJ residente especializado em repertório open format.
+          </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Investimento</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">A partir de</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">R$ 900<span class="font-body-sm text-body-sm text-outline">,00</span></span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">6 Horas de Show</span>
+</div>
+<button class="select-btn w-full py-space-sm px-space-md rounded-xl bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-title-md text-title-md transition-all duration-200 flex items-center justify-center gap-space-xs shadow-sm" data-selected="false" type="button">
+<span class="material-symbols-outlined text-[20px] btn-icon">add</span>
+<span class="btn-text">+ Adicionar ao Orçamento</span>
+</button>
+</div>
+</div>
+</div>
+<div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group" data-category="equipe" data-id="5" data-price="1200">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-end wedding photography setup, high-resolution mirrorless camera on luxury mahogany surface with vintage lenses, soft golden warm lighting, photo gallery preview on sleek tablet in a dark moody atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKch76pdDy3m3rFk4Y2D7w_XjrcLa-8WEFEiDU0v9u4qZixwotabNvo0OqnrPbLYCgB8QiZ6gEw7UHtMTJSq5VRhdPzF3J2m633_v0gtv7XMZE3zZv30Stxk801ooC_h0kgEtgHoFan2yjevnoCnANGJiJ9SrZ29bJHN75sfIvhliJ_uTah826jxUMAVe1nnZkWrVfFQwqhkU9t1LzbvfosLMOk4R5Iefetymm7WWt1bMe2p9wwWLl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
+<div class="absolute top-space-md right-space-md bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-1 rounded-full flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">5.0</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Memórias &amp; Foto</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant status-text">Ativo</span>
+<button aria-label="Alterar disponibilidade" class="toggle-switch w-9 h-5 bg-primary-container rounded-full relative transition-colors focus:outline-none cursor-pointer" type="button">
+<span class="dot absolute left-4 top-0.5 w-4 h-4 rounded-full bg-on-primary-container transition-transform"></span>
+</button>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Fotografia e Cobertura 360°</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+            2 fotógrafos seniores, cobertura integral de cerimônia/festa, pós-produção cinematográfica e galeria digital na nuvem.
+          </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Investimento</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">A partir de</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">R$ 1.200<span class="font-body-sm text-body-sm text-outline">,00</span></span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Cobertura Total</span>
+</div>
+<button class="select-btn w-full py-space-sm px-space-md rounded-xl bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-title-md text-title-md transition-all duration-200 flex items-center justify-center gap-space-xs shadow-sm selected-state" data-selected="true" type="button">
+<span class="material-symbols-outlined text-[20px] btn-icon">check</span>
+<span class="btn-text">Selecionado</span>
+</button>
+</div>
+</div>
+</div>
+<div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group" data-category="buffet" data-id="6" data-price="1500">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Sophisticated illuminated dark bar counter at a luxury midnight gala event with artisanal cocktails in cut crystal glasses, smoked garnishes, copper bar tools and warm amber back-bar bottles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoKpTENpc2G84JQzPO_c5njshSdtUKOyzMQAR78v_j23u6o22cv9KtJobgbilzZ-LRtuGYAV3_wqly74-0ib0nQjNWhToGlZt1-sC0V-zA-sPjGrwOE9hqWbqwQ7MRWXJ9NYfKN_rlXvMwdsl9RtPJy0UlVgpkZ6ezIeDUCL9FGcQNn3vYLr3BReTd0c-nUd124lkBxVnh-iggBc7BkwfXppnef4WPO-Y-kmAU5jfmQTgWIbFs2xYA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
+<div class="absolute top-space-md right-space-md bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-1 rounded-full flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-on-surface">4.9</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Mixologia &amp; Bar</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant status-text">Ativo</span>
+<button aria-label="Alterar disponibilidade" class="toggle-switch w-9 h-5 bg-primary-container rounded-full relative transition-colors focus:outline-none cursor-pointer" type="button">
+<span class="dot absolute left-4 top-0.5 w-4 h-4 rounded-full bg-on-primary-container transition-transform"></span>
+</button>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Open Bar Deluxe</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+            Coquetelaria autoral com infusões botânicas, bartenders especializados, taças de cristal lapidado e destilados nobres.
+          </p>
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Investimento</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">A partir de</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">R$ 1.500<span class="font-body-sm text-body-sm text-outline">,00</span></span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-outline">Pacote Prime</span>
+</div>
+<button class="select-btn w-full py-space-sm px-space-md rounded-xl bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-title-md text-title-md transition-all duration-200 flex items-center justify-center gap-space-xs shadow-sm selected-state" data-selected="true" type="button">
+<span class="material-symbols-outlined text-[20px] btn-icon">check</span>
+<span class="btn-text">Selecionado</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="sticky bottom-4 z-30 w-full">
+<div class="bg-surface-container-high/95 backdrop-blur-xl rounded-2xl p-space-md lg:p-space-lg shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-[26px]">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold" id="selected-counter">4 serviços selecionados</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Composição Ativa</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal acumulado:</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold" id="subtotal-amount">R$ 6.300,00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md w-full md:w-auto justify-end">
+<button class="px-space-md py-space-sm rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-all" id="clear-selection" type="button">
+          Limpar Seleção
+        </button>
+<a class="flex-1 md:flex-none flex items-center justify-center gap-space-sm px-space-xl py-3 rounded-xl bg-gradient-to-r from-primary-container via-primary to-secondary text-on-primary font-title-md text-title-md font-semibold hover:shadow-[0_0_24px_rgba(212,163,115,0.35)] transition-all duration-300" data-path="elaboracao-de-orcamentos" href="orcamentos.html">
+<span>Prosseguir para Elaboração de Orçamento</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initCatalog() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const selectButtons = document.querySelectorAll('.select-btn');
+    const toggleSwitches = document.querySelectorAll('.toggle-switch');
+    const selectedCounterEl = document.getElementById('selected-counter');
+    const subtotalAmountEl = document.getElementById('subtotal-amount');
+    const clearBtn = document.getElementById('clear-selection');
+
+    function updateSummary() {
+      let count = 0;
+      let total = 0;
+      serviceCards.forEach(card => {
+        const btn = card.querySelector('.select-btn');
+        if (btn && btn.getAttribute('data-selected') === 'true') {
+          count++;
+          total += parseInt(card.getAttribute('data-price'), 10) || 0;
+        }
+      });
+      selectedCounterEl.textContent = count + (count === 1 ? ' serviço selecionado' : ' serviços selecionados');
+      subtotalAmountEl.textContent = 'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-md');
+          b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-md');
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+
+        const cat = btn.getAttribute('data-category');
+        serviceCards.forEach(card => {
+          if (cat === 'all' || card.getAttribute('data-category') === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    selectButtons.forEach(btn => {
+      const isInitialSelected = btn.getAttribute('data-selected') === 'true';
+      if (isInitialSelected) {
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container', 'text-primary');
+      }
+
+      btn.addEventListener('click', () => {
+        const isSelected = btn.getAttribute('data-selected') === 'true';
+        const icon = btn.querySelector('.btn-icon');
+        const text = btn.querySelector('.btn-text');
+
+        if (isSelected) {
+          btn.setAttribute('data-selected', 'false');
+          btn.classList.remove('bg-primary', 'text-on-primary');
+          btn.classList.add('bg-surface-container', 'text-primary');
+          icon.textContent = 'add';
+          text.textContent = '+ Adicionar ao Orçamento';
+        } else {
+          btn.setAttribute('data-selected', 'true');
+          btn.classList.add('bg-primary', 'text-on-primary');
+          btn.classList.remove('bg-surface-container', 'text-primary');
+          icon.textContent = 'check';
+          text.textContent = 'Selecionado';
+        }
+        updateSummary();
+      });
+    });
+
+    toggleSwitches.forEach(sw => {
+      sw.addEventListener('click', () => {
+        const dot = sw.querySelector('.dot');
+        const statusText = sw.closest('.flex').querySelector('.status-text');
+        const isActive = dot.classList.contains('left-4');
+
+        if (isActive) {
+          dot.classList.remove('left-4', 'bg-on-primary-container');
+          dot.classList.add('left-0.5', 'bg-outline');
+          sw.classList.remove('bg-primary-container');
+          sw.classList.add('bg-surface-container-highest');
+          if (statusText) {
+            statusText.textContent = 'Pausado';
+            statusText.classList.add('text-outline');
+            statusText.classList.remove('text-on-surface-variant');
+          }
+        } else {
+          dot.classList.add('left-4', 'bg-on-primary-container');
+          dot.classList.remove('left-0.5', 'bg-outline');
+          sw.classList.add('bg-primary-container');
+          sw.classList.remove('bg-surface-container-highest');
+          if (statusText) {
+            statusText.textContent = 'Ativo';
+            statusText.classList.remove('text-outline');
+            statusText.classList.add('text-on-surface-variant');
+          }
+        }
+      });
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        selectButtons.forEach(btn => {
+          btn.setAttribute('data-selected', 'false');
+          btn.classList.remove('bg-primary', 'text-on-primary');
+          btn.classList.add('bg-surface-container', 'text-primary');
+          const icon = btn.querySelector('.btn-icon');
+          const text = btn.querySelector('.btn-text');
+          if (icon) icon.textContent = 'add';
+          if (text) text.textContent = '+ Adicionar ao Orçamento';
+        });
+        updateSummary();
+      });
+    }
+
+    updateSummary();
+  })();
+</script></main></div><script src="../js/app.js"></script>
+</body></html>

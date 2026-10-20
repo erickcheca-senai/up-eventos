@@ -1,0 +1,29 @@
+:root{--up-bg:#080707;--up-panel:#11100f;--up-panel2:#171513;--up-line:#332923;--up-gold:#d9a05f;--up-rose:#e6a681;--up-text:#f5eee9;--up-muted:#a9a09b}
+body{background:var(--up-bg)!important;color:var(--up-text)!important}
+.up-logo{display:flex!important;align-items:center!important;gap:10px!important;text-decoration:none!important;background:transparent!important}
+.up-logo img{display:block!important;width:150px!important;height:62px!important;object-fit:contain!important;object-position:left center!important}
+.up-brand-logo{width:150px;height:62px;object-fit:contain}
+.up-empresa-header{background:#090808!important;border-bottom:1px solid var(--up-line)!important}
+.up-empresa-card{background:var(--up-panel)!important;border:1px solid var(--up-line)!important;border-radius:18px!important}
+.up-empresa-button{background:linear-gradient(135deg,#e8aa80,#c98158)!important;color:#1a0e0a!important;border:0!important}
+.up-empresa-secondary{background:transparent!important;border:1px solid #6c4b3a!important;color:var(--up-text)!important}
+.up-empresa-accent{color:var(--up-rose)!important}
+.up-empresa-muted{color:var(--up-muted)!important}
+input,select,textarea{background:#0d0c0b!important;color:var(--up-text)!important;border-color:var(--up-line)!important}
+input::placeholder,textarea::placeholder{color:#756c67!important}
+.bg-white{background:var(--up-panel)!important}
+.bg-slate-100,.bg-gray-100,.bg-gray-50{background:#0d0c0b!important}
+.text-slate-900,.text-gray-900,.text-gray-800{color:var(--up-text)!important}
+.text-slate-700,.text-gray-700,.text-slate-600,.text-gray-600,.text-slate-500,.text-gray-500{color:var(--up-muted)!important}
+.border-slate-200,.border-slate-300,.border-gray-200{border-color:var(--up-line)!important}
+.bg-slate-900{background:linear-gradient(135deg,#e8aa80,#c98158)!important;color:#1a0e0a!important}
+
+@media print {
+  body { background: #fff !important; color: #111 !important; }
+  aside, nav, button, .no-print { display: none !important; }
+  main, section, article, div { box-shadow: none !important; }
+  a { color: #111 !important; text-decoration: none !important; }
+}
+
+/* Calendário único UP Eventos */
+#up-live-calendar button:focus-visible{outline:2px solid #f2be8c;outline-offset:2px}#up-live-calendar button:hover{filter:brightness(1.18)}

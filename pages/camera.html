@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UP Eventos — Módulo Fotográfico</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@400;500;600;700&family=Material+Symbols+Outlined" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{font-family:Outfit,sans-serif;background:#080707;color:#f5eee9}.title{font-family:"Playfair Display",serif}
+video{transform:scaleX(1);background:#090909;min-height:280px;max-height:62vh;object-fit:contain;border:1px solid #45352b}
+.photo{aspect-ratio:4/3;object-fit:cover}.camera-panel{background:#11100f;border:1px solid #332923;border-radius:18px;box-shadow:0 12px 32px #0005}
+.camera-btn{border-radius:12px;transition:filter .2s,transform .2s}.camera-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+#status{border:1px solid #6c4b3a;border-radius:999px;padding:6px 10px}
+</style>
+<style id="up-eventos-cleanup">
+.up-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.up-logo-mark{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:#111827;color:#fff;font-weight:800;font-size:15px}
+.up-logo-text{font-weight:800;letter-spacing:.04em;color:#111827}
+.up-notification-panel{position:fixed;right:24px;top:78px;width:330px;max-width:calc(100vw - 32px);background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 18px 45px rgba(0,0,0,.14);padding:16px;z-index:9999;display:none}
+.up-notification-panel.show{display:block}
+.up-notification-panel h3{margin:0 0 10px;font-size:16px}
+.up-notification-item{padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:13px}
+.up-notification-item:last-child{border-bottom:0}
+</style><link rel="stylesheet" href="../css/estilo-empresa.css"><link rel="icon" type="image/png" href="../assets/favicon.png"></head>
+<script>if(localStorage.getItem('up_eventos_logado') !== '1') window.location.href='../login.html';</script><body>
+<header class="border-b border-white/10 px-6 py-4 flex items-center justify-between">
+  <div><div class="text-xs uppercase tracking-[.25em] text-amber-200">UP Eventos</div><h1 class="title text-2xl">Módulo Fotográfico</h1></div>
+  <a href="eventos-galeria.html" class="rounded-lg px-4 py-2 bg-white/10 hover:bg-white/15">Voltar</a>
+</header>
+<main class="max-w-6xl mx-auto p-6">
+  <div class="grid lg:grid-cols-[1.5fr_1fr] gap-6">
+    <section class="camera-panel p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold">Câmera</h2>
+        <span id="status" class="text-sm text-amber-200">Câmera parada</span>
+      </div>
+      <video id="cameraFeed" class="w-full rounded-xl" autoplay playsinline></video>
+      <div class="grid md:grid-cols-3 gap-3 mt-4"><label class="text-sm">Câmera<select id="cameraChoice" class="block w-full mt-1 rounded-lg bg-black/30 border border-white/20 p-2"><option value="user">Frontal</option><option value="environment">Traseira</option></select></label><label class="text-sm">Qualidade<select id="photoQuality" class="block w-full mt-1 rounded-lg bg-black/30 border border-white/20 p-2"><option value="0.95">Alta</option><option value="0.8">Média</option><option value="0.6">Leve</option></select></label><label class="text-sm">Temporizador<select id="photoTimer" class="block w-full mt-1 rounded-lg bg-black/30 border border-white/20 p-2"><option value="0">Sem temporizador</option><option value="3">3 segundos</option><option value="5">5 segundos</option></select></label></div>
+      <canvas id="capturedImage" class="hidden"></canvas>
+      <div id="cameraError" class="hidden mt-3 rounded-lg border border-red-400/30 bg-red-400/10 p-3 text-sm"></div>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <button id="startCamera" class="camera-btn bg-amber-200 text-black px-4 py-3 font-semibold">Abrir câmera</button>
+        <button id="captureButton" class="camera-btn bg-white/10 border border-white/10 px-4 py-3">Capturar foto</button>
+        <button id="stopCamera" class="camera-btn bg-white/10 border border-white/10 px-4 py-3">Parar câmera</button>
+        <a id="downloadPhoto" class="hidden camera-btn bg-white/10 border border-white/10 px-4 py-3" download="up-eventos-foto.png">Baixar foto</a>
+      </div>
+      <p class="text-sm text-white/60 mt-4">No computador, permita o acesso à câmera quando o navegador solicitar. O Live Server é recomendado.</p>
+    </section>
+    <section class="camera-panel p-5">
+      <div class="flex items-center justify-between mb-4"><h2 class="text-lg font-semibold">Galeria salva</h2><span id="counter" class="text-sm text-white/60">0 fotos</span></div>
+      <div id="gallery" class="grid grid-cols-2 gap-3"></div>
+      <p id="empty" class="text-sm text-white/50">Nenhuma foto salva ainda.</p>
+    </section>
+  </div>
+</main>
+<script src="../js/app.js"></script>
+<script>
+const video=document.getElementById("cameraFeed"), canvas=document.getElementById("capturedImage");
+const start=document.getElementById("startCamera"), capture=document.getElementById("captureButton"), stop=document.getElementById("stopCamera");
+const download=document.getElementById("downloadPhoto"), statusEl=document.getElementById("status"), errorEl=document.getElementById("cameraError");
+let stream=null; let lastFacing="user";
+function renderGallery(){
+  const list=UP.getPhotos(), gallery=document.getElementById("gallery"), empty=document.getElementById("empty");
+  document.getElementById("counter").textContent=list.length+" foto"+(list.length===1?"":"s");
+  gallery.innerHTML="";
+  empty.style.display=list.length?"none":"block";
+  list.forEach(p=>{
+    const box=document.createElement("div"); box.className="relative group";
+    box.innerHTML='<img class="photo w-full rounded-lg" src="'+p.data+'"><button class="absolute top-2 right-2 rounded-md bg-black/70 px-2 py-1 text-xs" data-id="'+p.id+'">Excluir</button>';
+    box.querySelector("button").onclick=()=>{UP.deletePhoto(p.id);renderGallery();};
+    gallery.appendChild(box);
+  });
+}
+async function openCamera(){
+  errorEl.classList.add("hidden");
+  try{
+    if(!navigator.mediaDevices?.getUserMedia) throw new Error("Este navegador não liberou acesso à câmera. Abra o projeto pelo Live Server ou HTTPS.");
+    lastFacing=document.getElementById("cameraChoice").value; const videoOptions={facingMode:{ideal:lastFacing},width:{ideal:1920},height:{ideal:1080}}; stream=await navigator.mediaDevices.getUserMedia({video:videoOptions,audio:false});
+    video.srcObject=stream; statusEl.textContent="Câmera ativa";
+  }catch(err){errorEl.textContent="Não foi possível abrir a câmera: "+err.message;errorEl.classList.remove("hidden");statusEl.textContent="Erro na câmera";}
+}
+function closeCamera(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null;}video.srcObject=null;statusEl.textContent="Câmera parada";}
+start.onclick=openCamera; stop.onclick=closeCamera;
+let capturing=false;
+async function captureNow(){
+  if(!stream){errorEl.textContent="Abra a câmera antes de capturar.";errorEl.classList.remove("hidden");return;}
+  if(!video.videoWidth || !video.videoHeight){errorEl.textContent="Aguarde a imagem da câmera aparecer e tente novamente.";errorEl.classList.remove("hidden");return;}
+  canvas.width=video.videoWidth; canvas.height=video.videoHeight;
+  const ctx=canvas.getContext("2d");
+  if(lastFacing==="user"){ctx.translate(canvas.width,0);ctx.scale(-1,1);}
+  ctx.drawImage(video,0,0,canvas.width,canvas.height);ctx.setTransform(1,0,0,1,0,0);
+  const quality=Number(document.getElementById("photoQuality").value)||0.95;
+  const data=canvas.toDataURL("image/jpeg",quality);
+  try{UP.savePhoto(data);download.href=data;download.download="up-eventos-foto.jpg";download.classList.remove("hidden");renderGallery();UP.toast("Foto capturada e salva na galeria.");}
+  catch(e){errorEl.textContent="Não foi possível salvar a foto. O armazenamento do navegador pode estar cheio.";errorEl.classList.remove("hidden");}
+}
+capture.onclick=async()=>{
+  if(capturing)return;capturing=true;capture.disabled=true;
+  try{let seconds=Number(document.getElementById("photoTimer").value)||0;while(seconds>0){statusEl.textContent="Foto em "+seconds+"…";await new Promise(resolve=>setTimeout(resolve,1000));seconds--; }await captureNow();}
+  finally{capturing=false;capture.disabled=false;if(stream)statusEl.textContent="Câmera ativa";}
+};
+document.getElementById("cameraChoice").addEventListener("change",()=>{if(stream)openCamera();});
+window.addEventListener("beforeunload",closeCamera);
+renderGallery();
+</script>
+</body></html>

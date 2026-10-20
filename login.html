@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrar ou criar conta | UP Eventos</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/estilo-empresa.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+:root{color-scheme:dark}body{background:#111;color:#f5eee8}.auth-input{width:100%;border:1px solid #39302b;background:#0b0a09;border-radius:12px;padding:13px 15px;color:#fff;outline:none}.auth-input:focus{border-color:#efb986;box-shadow:0 0 0 2px #efb98633}.auth-btn{background:linear-gradient(100deg,#e4b17c,#ffc09b);color:#2a1a0e;border-radius:12px;padding:13px;font-weight:700}.social-btn{border:1px solid #49403a;border-radius:12px;padding:11px;color:#f7eee7;background:#211e1c}.auth-tab{padding:10px 16px;border-radius:10px}.auth-tab.active{background:#332820;color:#ffc18e}
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-5 py-8">
+<main class="w-full max-w-lg">
+  <div class="text-center mb-5"><a href="apresentacao.html"><img src="assets/logo-up-eventos.png" alt="UP Eventos" style="width:210px;height:130px;object-fit:contain;margin:auto"></a></div>
+  <section class="up-empresa-card p-6 sm:p-8 shadow-2xl" style="border:1px solid #332923;border-radius:22px">
+    <p class="text-center text-xs tracking-widest mb-2" style="color:#e9b17e">CELEBRE • CONECTE • VIVA MOMENTOS</p>
+    <h1 id="authTitle" class="text-3xl text-center" style="font-family:Georgia,serif">Acesse sua conta</h1>
+    <p id="authDescription" class="text-center mt-2 mb-6" style="color:#c5b7ac">Entre para acompanhar seus eventos e orçamentos.</p>
+    <div class="grid grid-cols-2 gap-2 mb-5">
+      <button type="button" id="tabLogin" class="auth-tab active">Entrar</button>
+      <button type="button" id="tabRegister" class="auth-tab">Criar conta</button>
+    </div>
+    <div class="grid grid-cols-2 gap-3 mb-5">
+      <button class="social-btn" id="googleBtn" type="button">G  Continuar com Google</button>
+      <button class="social-btn" id="appleBtn" type="button">●  Continuar com Apple</button>
+    </div>
+    <p class="text-xs text-center mb-5" style="color:#a99b90">O acesso Google/Apple precisa ser ativado com credenciais do provedor.</p>
+    <div class="flex items-center gap-3 mb-5"><span style="height:1px;background:#3c332d;flex:1"></span><span class="text-xs" style="color:#a99b90">ou use seu e-mail</span><span style="height:1px;background:#3c332d;flex:1"></span></div>
+    <form id="authForm" class="space-y-4">
+      <div id="nameWrap" hidden><label class="block text-sm mb-2" for="fullName">Nome completo</label><input class="auth-input" id="fullName" autocomplete="name" placeholder="Seu nome"></div>
+      <div><label class="block text-sm mb-2" for="email">E-mail</label><input class="auth-input" id="email" type="email" required autocomplete="email" placeholder="voce@exemplo.com"></div>
+      <div><label class="block text-sm mb-2" for="password">Senha</label><input class="auth-input" id="password" type="password" required minlength="6" autocomplete="current-password" placeholder="Mínimo de 6 caracteres"></div>
+      <div id="confirmWrap" hidden><label class="block text-sm mb-2" for="confirmPassword">Confirmar senha</label><input class="auth-input" id="confirmPassword" type="password" minlength="6" placeholder="Digite a senha novamente"></div>
+      <button id="submitAuth" type="submit" class="auth-btn w-full">Entrar na plataforma</button>
+    </form>
+    <button id="forgotBtn" type="button" class="block text-sm mx-auto mt-4" style="color:#efb986">Esqueci minha senha</button>
+    <p class="text-xs text-center mt-6" style="color:#a99b90">Demonstração escolar: a conta fica salva apenas neste navegador. Para uso real, conecte um servidor seguro de autenticação.</p>
+    <p class="text-center mt-4 text-sm"><a href="apresentacao.html" style="color:#efb986">← Voltar ao site público</a></p>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let mode = new URLSearchParams(location.search).get("modo") === "criar" ? "register" : "login";
+function showMode(next) {
+  mode = next;
+  $("tabLogin").classList.toggle("active", mode === "login");
+  $("tabRegister").classList.toggle("active", mode === "register");
+  $("nameWrap").hidden = mode !== "register";
+  $("confirmWrap").hidden = mode !== "register";
+  $("forgotBtn").hidden = mode !== "login";
+  $("authTitle").textContent = mode === "login" ? "Acesse sua conta" : "Crie sua conta";
+  $("authDescription").textContent = mode === "login" ? "Entre para acompanhar seus eventos e orçamentos." : "Cadastre-se para salvar seus eventos e solicitar propostas.";
+  $("submitAuth").textContent = mode === "login" ? "Entrar na plataforma" : "Criar minha conta";
+  $("password").autocomplete = mode === "login" ? "current-password" : "new-password";
+}
+$("tabLogin").addEventListener("click", () => showMode("login"));
+$("tabRegister").addEventListener("click", () => showMode("register"));
+$("authForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const email = $("email").value.trim().toLowerCase();
+  const password = $("password").value;
+  const accounts = JSON.parse(localStorage.getItem("up_eventos_contas") || "[]");
+  if (mode === "register") {
+    if ($("fullName").value.trim().length < 2) return alert("Informe seu nome completo.");
+    if (password !== $("confirmPassword").value) return alert("As senhas não são iguais.");
+    if (accounts.some(a => a.email === email)) return alert("Este e-mail já tem conta. Entre com sua senha.");
+    accounts.push({name:$("fullName").value.trim(), email, password, criadoEm:new Date().toISOString()});
+    localStorage.setItem("up_eventos_contas", JSON.stringify(accounts));
+    localStorage.setItem("up_eventos_usuario", JSON.stringify({name:$("fullName").value.trim(), email}));
+  } else {
+    const account = accounts.find(a => a.email === email && a.password === password);
+    if (!account) return alert("Conta não encontrada ou senha incorreta. Crie uma conta ou confira seus dados.");
+    localStorage.setItem("up_eventos_usuario", JSON.stringify({name:account.name, email:account.email}));
+  }
+  localStorage.setItem("up_eventos_sessao", "ativa");
+  localStorage.setItem("up_eventos_logado", "1");
+  const params = new URLSearchParams(location.search);
+  let next = localStorage.getItem("up_eventos_destino_apos_login") || (params.get("destino") === "orcamento" ? "pages/orcamentos.html" : "pages/dashboard.html");
+  localStorage.removeItem("up_eventos_destino_apos_login");
+  // Corrige destinos antigos que ficaram duplicados como pages/pages/arquivo.html.
+  next = next.replace(/^(?:\.\/)?pages\/pages\//, "pages/");
+  if (next.startsWith("/pages/")) next = next.slice(1);
+  location.href = next;
+});
+$("forgotBtn").addEventListener("click", () => alert("Para esta demonstração, a senha fica salva somente neste navegador. Em produção, a recuperação deve enviar um link seguro por e-mail."));
+$("googleBtn").addEventListener("click", () => alert("Login Google ainda precisa de configuração OAuth e credenciais do projeto."));
+$("appleBtn").addEventListener("click", () => alert("Login Apple ainda precisa de configuração de serviço e credenciais do projeto."));
+showMode(mode);
+</script>
+</body></html>

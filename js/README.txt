@@ -1,0 +1,1 @@
+Pasta reservada para JavaScript adicional. As telas originais usam scripts inline quando necessário.
